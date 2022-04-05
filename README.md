@@ -1,2 +1,2 @@
-# https://adrianbegic.github.io/skate-config/
+# https://adrianbegic.github.io/ski-conf/
 
