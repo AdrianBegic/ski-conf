@@ -6,19 +6,14 @@
                 <div class="card-carousel-cards" :style="{
               transform: 'translateX' + '(' + currentOffset + 'px' + ')',
             }">
-                    <div class="card-carousel--card" v-for="board in board" :key="board.id">
-                        <router-link :to="{name: 'Boards' , params : {id : board.ID}}">
-                            <img id="brand" :src="board.Image" :title="board.Name" />
+                    <div class="card-carousel--card" v-for="ski in ski" :key="ski.id">
+                        <router-link :to="{name: 'Skis' , params : {id : ski.ID}}">
+                            <img id="brand" :src="ski.Image" :title="ski.Name" />
                         </router-link>
                     </div>
-                    <div class="card-carousel--card" v-for="truck in truck" :key="truck.id">
-                        <router-link :to="{name: 'Trucks' , params : {id : board.ID}}">
-                            <img id="brand" :src="truck.Image" :title="truck.Name" />
-                        </router-link>
-                    </div>
-                    <div class="card-carousel--card" v-for="wheel in wheel" :key="wheel.id">
-                        <router-link :to="{name: 'Wheels' , params : {id : wheel.ID}}">
-                            <img id="brand" :src="wheel.Image" :title="wheel.Name" />
+                    <div class="card-carousel--card" v-for="snowboard in snowboard" :key="snowboard.id">
+                        <router-link :to="{name: 'Snowboards' , params : {id : ski.ID}}">
+                            <img id="brand" :src="snowboard.Image" :title="snowboard.Name" />
                         </router-link>
                     </div>
                 </div>
@@ -34,23 +29,22 @@ import {
 } from "../firebaseDb";
 
 export default {
-    name: "menu_board_select",
+    name: "menu_sport_select",
     data() {
         return {
             currentOffset: 0,
             windowSize: 12,
             paginationFactor: 170,
-            board: [],
-            truck: [],
-            wheel: [],
+            ski: [],
+            snowboard: [],
         };
     },
 
     created() {
-        db.collection("board").onSnapshot((snapshotChange) => {
-            this.board = [];
+        db.collection("ski").onSnapshot((snapshotChange) => {
+            this.ski = [];
             snapshotChange.forEach((doc) => {
-                this.board.push({
+                this.ski.push({
                     key: doc.id,
                     Image: doc.data().image,
                     Name: doc.data().name,
@@ -59,10 +53,10 @@ export default {
             });
         });
 
-        db.collection("truck").onSnapshot((snapshotChange) => {
-            this.truck = [];
+        db.collection("snowboard").onSnapshot((snapshotChange) => {
+            this.snowboard = [];
             snapshotChange.forEach((doc) => {
-                this.truck.push({
+                this.snowboard.push({
                     key: doc.id,
                     Image: doc.data().image,
                     Name: doc.data().name,
@@ -71,24 +65,13 @@ export default {
             });
         });
 
-         db.collection("wheel").onSnapshot((snapshotChange) => {
-            this.wheel = [];
-            snapshotChange.forEach((doc) => {
-                this.wheel.push({
-                    key: doc.id,
-                    Image: doc.data().image,
-                    Name: doc.data().name,
-                    ID: doc.data().ID,
-                });
-            });
-        });
     },
 
     computed: {
         atEndOfList() {
             return (
                 this.currentOffset <=
-                this.paginationFactor * -1 * (this.boards.length - this.windowSize)
+                this.paginationFactor * -1 * (this.skis.length - this.windowSize)
             );
         },
         atHeadOfList() {
@@ -118,7 +101,7 @@ a {
 
 .card-carousel-wrapper {
     display: flex;
-    align-board: center;
+    align-ski: center;
     justify-content: center;
     margin: 20px 0 20px;
     color: #666a73;

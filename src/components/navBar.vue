@@ -1,7 +1,7 @@
 <template>
 <header class="header">
     <router-link class="header__logo" to="/">
-        <h1 class="header__logo" alt="logo">SKATEBOARD CONFIGURATOR</h1>
+        <h1 class="header__logo" alt="logo">SKI SNOWBOARD CONFIGURATOR</h1>
     </router-link>
     <div class="ham-menu" @click="changeVisibility()" :class="{ active: burgerVisibility }">
         <span class="ham-menu__item"></span>

@@ -1,17 +1,17 @@
 <template>
 
 <div>
-    <menu_parts_select/>
+    <menu_sport_select/>
   </div>
 </template>
 
 <script>
-import menu_parts_select from "@/components/menu_parts_select.vue";
+import menu_sport_select from "@/components/menu_sport_select.vue";
 
 export default {
   name: "Home",
   components: {
-    menu_parts_select,
+    menu_sport_select,
 
   },
 

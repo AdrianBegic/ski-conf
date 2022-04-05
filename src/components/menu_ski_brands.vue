@@ -11,9 +11,9 @@
                     <div class="card-carousel--card">
                         <img id="brand" src="../assets/back.png" title="Back" @click="goBack" />
                     </div>
-                    <div class="card-carousel--card" v-for="wheels in wheels" :key="wheels.id">
-                    <router-link :to="{name: 'WheelBrand' , params : {id : wheels.ID}}">
-                        <img id="brand" :src="wheels.Image" :title="wheels.Name" />
+                    <div class="card-carousel--card" v-for="skis in skis" :key="skis.id">
+                    <router-link :to="{name: 'Skis' , params : {id : skis.ID}}">
+                        <img id="brand" :src="skis.Image" :title="skis.Name" />
                         </router-link>
                     </div>
                     
@@ -31,21 +31,21 @@ import {
 } from "../firebaseDb";
 
 export default {
-    name: "menu_wheels_brands",
+    name: "menu_ski_brands",
     data() {
         return {
             currentOffset: 0,
             windowSize: 12,
             paginationFactor: 170,
-            wheels: [],
+            skis: [],
         };
     },
 
     created() {
-        db.collection("wheels").onSnapshot((snapshotChange) => {
-            this.wheels = [];
+        db.collection("skis").onSnapshot((snapshotChange) => {
+            this.skis = [];
             snapshotChange.forEach((doc) => {
-                this.wheels.push({
+                this.skis.push({
                     key: doc.id,
                     Image: doc.data().image,
                     Name: doc.data().name,
@@ -68,7 +68,7 @@ export default {
         atEndOfList() {
             return (
                 this.currentOffset <=
-                this.paginationFactor * -1 * (this.wheelss.length - this.windowSize)
+                this.paginationFactor * -1 * (this.skiss.length - this.windowSize)
             );
         },
         atHeadOfList() {
@@ -104,7 +104,7 @@ export default {
 
 .card-carousel-wrapper {
     display: flex;
-    align-wheelss: center;
+    align-skiss: center;
     justify-content: center;
     margin: 20px 0 20px;
     color: #666a73;

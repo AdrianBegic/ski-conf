@@ -1,11 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Boards from "../components/menu_board_brands.vue";
+import Skis from "../components/menu_ski_brands.vue";
 import Brand_boards from "../components/menu_boards_select.vue";
-import Trucks from '../components/menu_trucks_brands.vue';
+import Snowboards from '../components/menu_snowboard_brands.vue';
 import Brand_trucks from '../components/menu_trucks_select.vue';
-import Wheels from '../components/menu_wheels_brands.vue';
-import Brand_wheels from '../components/menu_wheels_select.vue';
 
 
 const routes = [
@@ -17,12 +15,17 @@ const routes = [
   {
     path: "/:id",
     name: "Parts",
-    component: Trucks,
+    component: Skis,
   },
   {
-    path: "/boards",
-    name: "Boards",
-    component: Boards,
+    path: "/:id",
+    name: "Parts",
+    component: Snowboards,
+  },
+  {
+    path: "/skis",
+    name: "Skis",
+    component: Skis,
   },
   {
     path: "/boards/:id",
@@ -30,25 +33,16 @@ const routes = [
     component: Brand_boards,
   },
   {
-    path: "/trucks",
-    name: "Trucks",
-    component: Trucks,
+    path: "/snowboards",
+    name: "Snowboards",
+    component: Snowboards,
   },
   {
     path: "/trucks/:id",
     name: "TruckBrand",
     component: Brand_trucks,
   },
-  {
-    path: "/wheels",
-    name: "Wheels",
-    component: Wheels,
-  },
-  {
-    path: "/wheels/:id",
-    name: "WheelBrand",
-    component: Brand_wheels,
-  },
+
   
   
   

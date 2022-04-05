@@ -1,19 +1,20 @@
 import * as firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAP1AG9ew0g_S60cuXMXNXZDBpYwckoHS0",
-  
-  authDomain: "skateboard-config.firebaseapp.com",
+  apiKey: "AIzaSyBJxKdejt71z-P6MudEcizeQ4EpzTg4jhg",
 
-  projectId: "skateboard-config",
+  authDomain: "skisnowconf.firebaseapp.com",
 
-  storageBucket: "skateboard-config.appspot.com",
+  projectId: "skisnowconf",
 
-  messagingSenderId: "577855410890",
+  storageBucket: "skisnowconf.appspot.com",
 
-  appId: "1:577855410890:web:7eec579dc7829defa25a33",
+  messagingSenderId: "1039606985511",
 
-  measurementId: "G-2D0ZFH2NXT"
+  appId: "1:1039606985511:web:ff39e9de09b0461175af02",
+
+  measurementId: "G-BFJC9T9L8Y"
+
 }
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

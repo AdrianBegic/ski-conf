@@ -11,9 +11,9 @@
                     <div class="card-carousel--card">
                         <img id="brand" src="../assets/back.png" title="Back" @click="goBack" />
                     </div>
-                    <div class="card-carousel--card" v-for="boards in boards" :key="boards.id">
-                    <router-link :to="{name: 'BoardBrand' , params : {id : boards.ID}}">
-                        <img id="brand" :src="boards.Image" :title="boards.Name" />
+                    <div class="card-carousel--card" v-for="snowboards in snowboards" :key="snowboards.id">
+                    <router-link :to="{name: 'Snowboards' , params : {id : snowboards.ID}}">
+                        <img id="brand" :src="snowboards.Image" :title="snowboards.Name" />
                         </router-link>
                     </div>
                     
@@ -31,21 +31,21 @@ import {
 } from "../firebaseDb";
 
 export default {
-    name: "menu_board_brands",
+    name: "menu_snowboards_brands",
     data() {
         return {
             currentOffset: 0,
             windowSize: 12,
             paginationFactor: 170,
-            boards: [],
+            snowboards: [],
         };
     },
 
     created() {
-        db.collection("boards").onSnapshot((snapshotChange) => {
-            this.boards = [];
+        db.collection("snowboards").onSnapshot((snapshotChange) => {
+            this.snowboards = [];
             snapshotChange.forEach((doc) => {
-                this.boards.push({
+                this.snowboards.push({
                     key: doc.id,
                     Image: doc.data().image,
                     Name: doc.data().name,
@@ -68,7 +68,7 @@ export default {
         atEndOfList() {
             return (
                 this.currentOffset <=
-                this.paginationFactor * -1 * (this.boardss.length - this.windowSize)
+                this.paginationFactor * -1 * (this.snowboardss.length - this.windowSize)
             );
         },
         atHeadOfList() {
@@ -104,7 +104,7 @@ export default {
 
 .card-carousel-wrapper {
     display: flex;
-    align-boardss: center;
+    align-snowboardss: center;
     justify-content: center;
     margin: 20px 0 20px;
     color: #666a73;

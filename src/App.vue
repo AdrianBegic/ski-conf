@@ -75,7 +75,7 @@ body {
 }
 
 .filler {
-    background-image: url("./assets/back.jpg");
+    background-image: url("./assets/SNOW-BACKGROUND-MAIN.png");
     background-size: cover;
     height: 100vh;
     width: 100vw;
